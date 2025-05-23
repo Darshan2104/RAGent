@@ -1,6 +1,35 @@
 # RAGent
+A Python implementation of advanced RAG (Retrieval Augmented Generation) architectures.
 
-A Python implementation of advanced RAG (Retrieval Augmented Generation) architectures focusing on Corrective RAG patterns.
+
+## Types of Agentic RAG architectures
+### Corrective RAG Flow
+- **Query Input**: User submits a query.
+- **Initial Retrieval**: Relevant context fetched from the database.
+- **First Response**: Model generates an initial answer.
+- **Error Check**: Response evaluated for mistakes or gaps.
+- **Corrective Retrieval**: New or refined context is retrieved.
+- **Regeneration**: Model produces an improved response.
+- **Final Output**: Corrected answer is returned to the user.
+
+### Implement Self-RAG
+- **Query Input**: User submits a query.
+- **Initial Retrieval**: Relevant documents retrieved from vector store.
+- **Initial Generation**: Model generates a draft answer.
+- **Self-Evaluation**: Model evaluates its own answer for accuracy and relevance.
+- **Query Refinement**: Model updates or expands the query based on gaps.
+- **Second Retrieval**: New or better context is fetched.
+- **Final Generation**: Model produces a refined, more accurate response.
+
+### Implement 
+- **Query Input**: User submits a query.
+- **Context Need Assessment**: System decides how much and what type of context is needed.
+- **Dynamic Retrieval**: Adapts retrieval strategy (e.g., top-k, filtering) based on query complexity.
+- **Adaptive Generation**: Model adjusts reasoning depth based on confidence and context.
+- **Feedback Loop (Optional)**: May refine query or retrieval if response quality is low.
+- **Final Output**: Generates a tailored response based on adaptive context.
+
+
 
 ## Project Structure
 
@@ -55,6 +84,10 @@ source my_venv/bin/activate  # On Unix/macOS
 pip install -r requirements.txt
 ```
 
+4. For Running Tests:
+```bash
+pytest . -s -v
+```
 ## Usage
 
 Run the main application:
@@ -70,13 +103,8 @@ The project follows a modular architecture:
 - `chains/`: LLM chain implementations for different tasks used by Node
 - `chroma_db/`: Vector database for efficient similarity search
 
-## Todo
-- Corrective RAG Flow
-- Implement Self-RAG
-- Implement Adaptive RAG
-
 
 ## References
-- Corrective RAG
-- Self-RAG
-- Adaptive RAG
+- [Corrective RAG - Oct, 2024](https://arxiv.org/pdf/2401.15884)
+- [Self-RAG - Oct, 2023](https://arxiv.org/pdf/2310.11511)
+- [Adaptive RAG - Mar, 2024](https://arxiv.org/pdf/2403.14403)

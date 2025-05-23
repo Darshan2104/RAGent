@@ -1,2 +1,7 @@
 my_venv
 .env
+__pycache__/
+graph/__pycache__/
+graph/chains/__pycache__/
+graph/chains/tests/__pycache__/
+graph/nodes/__pycache__/

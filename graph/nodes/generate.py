@@ -8,5 +8,4 @@ def generate(state: GraphState, **kwargs: Dict[str, Any]) -> GraphState:
     question = state["question"]
     documents = state["documents"]
     generation = generation_chain.invoke({"context": documents, "question": question})
-    print(generation)
     return {"question": question, "documents": documents,"generation": generation}

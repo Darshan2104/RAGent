@@ -6,6 +6,7 @@ from graph.chains.retrieval_grader import GradeDocuments, retrieval_grader
 from ingestion import retriever
 from graph.chains.generation import generation_chain
 from graph.chains.hallucination_grader import hallucination_grader, HallucinationGrader
+from graph.chains.question_router import RouteQuery, question_router
 
 def test_retriecal_grader_yes() -> None: 
     question = "Agent memory"
@@ -62,6 +63,14 @@ def test_hallucination_grader_no() -> None:
     assert not ans.binary_score    
 
 
+def test_question_router_web() -> None:
+    ans:RouteQuery = question_router.invoke({"question":"What is a capital of India"})
+    assert ans.datasource == "websearch"
+    
+
+def test_question_router_kb() -> None:
+    ans:RouteQuery = question_router.invoke({"question":"Agent memory"})
+    assert ans.datasource =="vectorstore"
 
 
 

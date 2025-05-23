@@ -23,11 +23,8 @@ A Python implementation of advanced RAG (Retrieval Augmented Generation) archite
 
 ### Implement 
 - **Query Input**: User submits a query.
-- **Context Need Assessment**: System decides how much and what type of context is needed.
-- **Dynamic Retrieval**: Adapts retrieval strategy (e.g., top-k, filtering) based on query complexity.
-- **Adaptive Generation**: Model adjusts reasoning depth based on confidence and context.
-- **Feedback Loop (Optional)**: May refine query or retrieval if response quality is low.
-- **Final Output**: Generates a tailored response based on adaptive context.
+- **query Assessment**: Based on query System decides which route to used, direct websearch of retrieval path
+- Rest of the steps remains same as self-RAG
 
 
 
@@ -46,6 +43,8 @@ A Python implementation of advanced RAG (Retrieval Augmented Generation) archite
 └── graph/               # Core LangGraph implementation
     ├── consts.py       # Constants and configurations
     ├── graph.py        # Main graph implementation
+    ├── selfrag_graph.py        # Self-RAG implementation
+    ├── adaptiverag_graph.py        # adaptive RAG implementation
     ├── state.py        # State Sturcture of Graph
     │
     ├── chains/         # LLM Chain implementations

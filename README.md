@@ -21,7 +21,7 @@ A Python implementation of advanced RAG (Retrieval Augmented Generation) archite
 - **Second Retrieval**: New or better context is fetched.
 - **Final Generation**: Model produces a refined, more accurate response.
 
-### Implement 
+### Implement Adaptive-RAG
 - **Query Input**: User submits a query.
 - **query Assessment**: Based on query System decides which route to used, direct websearch of retrieval path
 - Rest of the steps remains same as self-RAG
